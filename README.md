@@ -14,7 +14,7 @@ python3 nltk-download.py
 ```
 The last line downloads data needed by the [Natural Language Tookit](http://www.nltk.org/). 
 
-Next, register at [apps.twitter.com][https://apps.twitter.com] in order to get access tokens. Copy the `CONSUMER_KEY`, `CONSUMER_SECRET`, `ACCESS_TOKEN`, and `ACCESS_SECRET` into the `credentials.py` file.
+Next, register at [apps.twitter.com](https://apps.twitter.com) in order to get access tokens. Copy the `CONSUMER_KEY`, `CONSUMER_SECRET`, `ACCESS_TOKEN`, and `ACCESS_SECRET` into the `credentials.py` file.
 
 
 Finally, run the bot with `python3 bot.py`
