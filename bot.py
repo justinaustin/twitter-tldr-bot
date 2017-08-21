@@ -1,14 +1,15 @@
 import json
 import logging
-import os
 import re
 
-from credentials import *
+from credentials import (CONSUMER_KEY, CONSUMER_SECRET, ACCESS_SECRET, 
+                         ACCESS_TOKEN)
 import tweepy
 from tweepy.streaming import StreamListener
 from newspaper import Article
 
-NO_URL_MESSAGE = "I'm sorry! The message you sent me did not have an article link in it. :("
+NO_URL_MESSAGE = "The message you sent me did not have an article link in it."
+
 
 def get_article(article_url):
     logging.info('Download and processing article ' + article_url)
@@ -16,7 +17,9 @@ def get_article(article_url):
     article.download()
     article.parse()
     article.nlp()
+    print('hi')
     return article
+
 
 class DMListener(StreamListener):
     def __init__(self, api):
@@ -54,6 +57,7 @@ class DMListener(StreamListener):
     def on_error(self, status):
         logging.error(status)
 
+
 def main():
     auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
     auth.set_access_token(ACCESS_TOKEN, ACCESS_SECRET)
@@ -64,6 +68,7 @@ def main():
             stream.userstream()
         except Exception as e:
             logging.error(e)
+
 
 if __name__ == '__main__':
     logging.basicConfig(level=logging.INFO)
